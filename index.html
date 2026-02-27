@@ -149,7 +149,64 @@
         </div>
     </div>
 </div>
+<!-- Footer -->
+<footer class="app-footer mt-4 pt-4">
+    <div class="container-fluid">
+        <div class="row justify-content-center g-3">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="footer-card d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+                    <div class="footer-brand">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-calculator fs-4"></i>
+                            <span class="fw-semibold">Calculator</span>
+                        </div>
+                        <small class="text-secondary d-block mt-1">
+                            Standard & Scientific modes • Degree/Radian
+                        </small>
+                    </div>
 
+                    <nav class="footer-links d-flex flex-wrap gap-3">
+                        <a href="#ans-box" class="link-dark link-offset-1 link-underline-opacity-25 link-underline-opacity-100-hover">
+                            Display
+                        </a>
+                        <a href="#panels" class="link-dark link-offset-1 link-underline-opacity-25 link-underline-opacity-100-hover">
+                            Keys
+                        </a>
+                        <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer" class="link-dark link-offset-1 link-underline-opacity-25 link-underline-opacity-100-hover">
+                            Bootstrap
+                        </a>
+                        <a href="#" class="link-dark link-offset-1 link-underline-opacity-25 link-underline-opacity-100-hover" id="backToTop">
+                            Back to top
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-3 small text-secondary">
+                    <span>© <span id="year"></span> Calculator Helal Anwar</span>
+                    <span class="d-none d-sm-inline">Made with Bootstrap Icons</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Footer utilities
+    (function () {
+        // Current year
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear();
+
+        // Back to top (smooth scroll)
+        const back = document.getElementById('backToTop');
+        if (back) {
+            back.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    })();
+</script>
 <script type="module" src="./js/calculator.js"></script>
 </body>
 </html>
