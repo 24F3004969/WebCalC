@@ -44,7 +44,11 @@ function evalTheExpression(e) {
     }
 
     textBox.value = expression
-    finalAas.innerText = new Operator(expression.replace("÷", "/")).solve() + "";
+     let ans=new Operator(math.solve_parenthesis
+     (math.makeConsumableFunction
+     (math.add_or_remove_parenthesis(
+         expression.replace("÷", "/"))))).solve();
+    finalAas.innerText = ans + "";
 }
 
 function filter(input) {

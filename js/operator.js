@@ -59,7 +59,7 @@ export default class Operator {
         for (let i = 1; i < split.length; i++) {
             let x = split[i];
             x = (x.includes('!')) ? this.#factorial(x) : x;
-            finalValue = Math.pow(finalValue, parseInt(x));
+            finalValue = Math.pow(finalValue, parseFloat(x));
         }
         return finalValue.toString();
     }

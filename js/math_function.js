@@ -64,7 +64,7 @@ function loadFunctionTreeMap() {
 
 loadFunctionTreeMap();
 
-function add_or_remove_parenthesis(exp) {
+export function add_or_remove_parenthesis(exp) {
     let start = 0, end = 0;
     if (exp.includes("(") || exp.includes(")")) {
         for (let i = 0; i < exp.length; i++) {
@@ -86,7 +86,7 @@ function add_or_remove_parenthesis(exp) {
     return exp;
 }
 
-function makeConsumableFunction(exp) {
+export function makeConsumableFunction(exp) {
     for (const [k, v] of functionList) {
         exp = exp.replace(v.name, k)
     }
@@ -101,7 +101,7 @@ function containsOperator(exp) {
         exp.includes("^"));
 }
 
-function solve_parenthesis(exp) {
+export function solve_parenthesis(exp) {
     let start, end;
     let ans = "";
     while (exp.includes("(") || exp.includes(")")) {
@@ -128,5 +128,3 @@ function solve_parenthesis(exp) {
     }
     return exp;
 }
-
-console.log(new Operator(solve_parenthesis(makeConsumableFunction(add_or_remove_parenthesis("5^(3+5)")))).solve());
