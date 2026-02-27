@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Calculator</title>
+
+    <!-- Your local Bootstrap -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <script src="./bootstrap/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<!-- Display -->
+<div class="container-fluid" id="ans-box">
+    <div class="row">
+        <div class="col-12">
+            <label for="inputExpression" class="form-label fs-3" id="finalAnswer">Answer</label>
+            <input
+                    type="text"
+                    class="form-control form-control-lg text-end"
+                    id="inputExpression"
+                    placeholder="0"
+            />
+        </div>
+    </div>
+</div>
+
+<!-- Controls -->
+<div class="container-fluid" id="button_box">
+    <div class="controls m-2">
+        <div>
+            <input class="form-check-input" type="radio" name="typeMeasure" id="radioRadian">
+            <label class="form-check-label" for="radioRadian">Radian</label>
+        </div>
+        <div>
+            <input class="form-check-input" type="radio" name="typeMeasure" id="radioDegree" checked>
+            <label class="form-check-label" for="radioDegree">Degree</label>
+        </div>
+    </div>
+
+    <div class="controls m-2">
+        <div>
+            <input class="form-check-input" type="radio" name="typeCal" id="radioScientific">
+            <label class="form-check-label" for="radioScientific">Scientific</label>
+        </div>
+        <div>
+            <input class="form-check-input" type="radio" name="typeCal" id="radioStandard" checked>
+            <label class="form-check-label" for="radioStandard">Standard</label>
+        </div>
+    </div>
+
+    <!-- Panels: stack on xs; side-by-side from md (≥768px) -->
+    <div id="panels" class="row g-2">
+        <!-- LEFT: Scientific (3 columns per row) -->
+        <div class="col-12 col-md-6" id="scientific">
+            <div class="d-flex flex-column gap-2">
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="sin(">sin</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="cos(">cos</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="tan(">tan</button></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="csc(">csc</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="sec(">sec</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="cot(">cot</button></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="^2">x<sup>2</sup></button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="^3">x<sup>3</sup></button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="^">x<sup>y</sup></button></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">√</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">∛</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">ⁿ√</button></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">log<sub>10</sub></button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">log<sub>e</sub></button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">log<sub>2</sub></button></div>
+                </div>
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">2<sup>nd</sup></button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">Inv</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">Hpy</button></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Standard (4 columns per row; last column operators) -->
+        <div class="col-12 col-md-6" id="basic">
+            <div class="d-flex flex-column gap-2">
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">π</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">e</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">CE</button></div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-dark key key-outline w-100" id="back" aria-label="Backspace">
+                            <i class="bi bi-backspace"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">(</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">)</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">!</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">÷</button></div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">7</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">8</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">9</button></div>
+                    <!-- keep id="*" exactly as your file -->
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="*">×</button></div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">4</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">5</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">6</button></div>
+                    <!-- keep id="-" exactly as your file -->
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100" id="-">−</button></div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">1</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">2</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">3</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">+</button></div>
+                </div>
+
+                <div class="row g-2">
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100"><sup>p</sup>&frasl;<sub>q</sub></button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">0</button></div>
+                    <div class="col"><button type="button" class="btn btn-outline-dark key key-outline w-100">.</button></div>
+                    <div class="col"><button type="button" class="btn btn-dark key-equals w-100">=</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="./js/calculator.js"></script>
+</body>
+</html>

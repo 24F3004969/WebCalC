@@ -1,0 +1,78 @@
+:root{
+    /* Layout width cap */
+    --calc-max-w: 980px;
+
+    /* Display sizing */
+    --display-fs: clamp(1.4rem, 5vw, 2.2rem);
+    --display-py: clamp(.45rem, 1.5vw, .75rem);
+
+    /* Key sizing */
+    --key-fs: clamp(0.95rem, 2.2vw, 1.05rem);
+    --key-h: clamp(44px, 7.8vw, 54px);
+    --key-radius: 10px;
+
+    /* Gaps */
+    --row-gap: .5rem;
+    --col-gap: .5rem;
+}
+
+body{
+    padding: .75rem;
+    background: #f8f9fa;
+}
+
+/* Center and limit width */
+#ans-box, #button_box{
+    max-width: var(--calc-max-w);
+    margin-inline: auto;
+}
+
+/* Display */
+#finalAnswer{ font-size: .9rem; }
+#inputExpression{
+    height: auto;
+    line-height: 1.2;
+    font-size: var(--display-fs);
+    padding-top: var(--display-py);
+    padding-bottom: var(--display-py);
+    background: #fff;
+}
+
+/* Keys */
+.key{
+    font-size: var(--key-fs);
+    min-height: var(--key-h);
+    border-radius: var(--key-radius);
+    border-width: 1.5px;
+}
+.key-outline{
+    background-color: #fff;
+}
+
+.key-equals{
+    font-weight: 600;
+    min-height: var(--key-h);
+    border-radius: var(--key-radius);
+}
+.key i{ pointer-events: none; }
+
+/* Tight rows like the reference */
+#button_box .row.g-2{
+    --bs-gutter-x: var(--col-gap);
+    --bs-gutter-y: var(--row-gap);
+}
+
+/* Control radios layout */
+.controls{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem 1.25rem;
+    justify-content: flex-end;
+}
+
+/* Your original radio styling */
+.form-check-input{ border-color:#000; }
+.form-check-input:checked{ background-color:#000; border-color:#000; }
+.form-check-input:hover{ border-color:#000; }
+.form-check-input:focus{ border-color:#000; box-shadow:0 0 0 .25rem rgba(0,0,0,.25); }
+.form-check-input:disabled:checked{ background-color:#222; border-color:#222; }
